@@ -1,7 +1,7 @@
 import express from "express"
 import {nuevoCliente, verClientes, verCliente,actualizarCliente, eliminarCliente} from'../controllers/clienteController.js'
 import {nuevoProducto, subirArchivo, verProductos,verProducto, actualizarProducto,eliminarProducto} from '../controllers/productosController.js'
-
+import { nuevoPedido, verPedidos, verPedido, actualizarPedido, eliminarPedido } from '../controllers/pedidosControler.js'
 // CRUD CLIENTES
 const router = express.Router();
 // Agregar un cliente 
@@ -31,4 +31,18 @@ router.put('/productos/:idProducto',
 
 router.delete('/productos/:idProducto', eliminarProducto)
     
+
+//CRUD pedidos
+
+router.post('/pedidos', nuevoPedido)
 export default router
+
+// Ver  todos los pedidos
+router.get('/pedidos', verPedidos)
+
+// Ver pedidos por ID
+router.get('/pedidos/:idPedido',verPedido)
+
+router.put('/pedido/:idPedido',actualizarPedido)
+
+router.delete('/pedido/:idPedido', eliminarPedido)
