@@ -2,6 +2,7 @@ import express from "express"
 import {nuevoCliente, verClientes, verCliente,actualizarCliente, eliminarCliente} from'../controllers/clienteController.js'
 import {nuevoProducto, subirArchivo, verProductos,verProducto, actualizarProducto,eliminarProducto} from '../controllers/productosController.js'
 import { nuevoPedido, verPedidos, verPedido, actualizarPedido, eliminarPedido } from '../controllers/pedidosControler.js'
+import{ nuevaMarca, subirArchivoMarca, verMarcas, verMarca,actualizarMarca,eliminarMarca}from "../controllers/marcaController.js"
 // CRUD CLIENTES
 const router = express.Router();
 // Agregar un cliente 
@@ -15,6 +16,20 @@ router.put('/clientes/:idCliente',actualizarCliente);
 // Eliminar cliente 
 router.delete('/clientes/:idCliente',eliminarCliente);
 
+//###############################################
+// CRUD MARCAS
+router.post('/marcas', 
+    subirArchivoMarca,
+    nuevaMarca);
+
+
+router.get('/marcas',verMarcas);
+router.get('/marca/:idMarca',verMarca);
+router.put('/marca/:idMarca',
+    subirArchivoMarca,
+    actualizarMarca)
+
+router.delete('/marca/:idMarca', eliminarMarca)
 
 //###############################################
 // CRUD PRODUCTOS
