@@ -3,7 +3,8 @@ import {nuevoCliente, verClientes, verCliente,actualizarCliente, eliminarCliente
 import {nuevoProducto, subirArchivo, verProductos,verProducto, actualizarProducto,eliminarProducto} from '../controllers/productosController.js'
 import { nuevoPedido, verPedidos, verPedido, actualizarPedido, eliminarPedido } from '../controllers/pedidosControler.js'
 import{ nuevaMarca, subirArchivoMarca, verMarcas, verMarca,actualizarMarca,eliminarMarca}from "../controllers/marcaController.js"
-import{ nuevoColorCategory, verColorCategory} from '../controllers/colorCategoryController.js'
+import{ nuevoColorCategory,verColorsCategory, verColorCategory, actualizarColorCategory, eliminarColorCategory} from '../controllers/colorCategoryController.js'
+import { nuevoTypeColorCategory, verTypeColorCategory } from "../controllers/TypeColorController.js"
 // CRUD CLIENTES
 const router = express.Router();
 // Agregar un cliente 
@@ -37,7 +38,10 @@ router.delete('/marca/:idMarca', eliminarMarca);
 //CRUD COLOR CATEGORIES
 
 router.post('/colorCategory',nuevoColorCategory);
-router.get('/colorCategory',verColorCategory);
+router.get('/colorCategory',verColorsCategory);
+router.get('/colorCategory/:idColorCategory',verColorCategory);
+router.put('/colorCategory/:idColorCategory', actualizarColorCategory)
+router.delete('/colorCategory/:idColorCategory', eliminarColorCategory);
 
 //###############################################
 // CRUD PRODUCTOS
@@ -58,7 +62,6 @@ router.delete('/productos/:idProducto', eliminarProducto)
 //CRUD pedidos
 
 router.post('/pedidos', nuevoPedido)
-export default router
 
 // Ver  todos los pedidos
 router.get('/pedidos', verPedidos)
@@ -69,3 +72,14 @@ router.get('/pedidos/:idPedido',verPedido)
 router.put('/pedido/:idPedido',actualizarPedido)
 
 router.delete('/pedido/:idPedido', eliminarPedido)
+
+
+// Crud typeColor Rojo , cobrizo, naturales Nacarados etc
+
+router.post('/TypeColors', nuevoTypeColorCategory)
+
+router.get('/TypeColors/', verTypeColorCategory)
+
+
+
+export default router

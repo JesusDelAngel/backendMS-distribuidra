@@ -127,6 +127,5 @@ export const eliminarProducto = async(req,res,next)=>{
     res.json({mensaje:'Producto eliminado Correctamente'});
   } catch (error) {
     console.log(error);
-    next();
   }
 }
