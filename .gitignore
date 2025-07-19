@@ -15,6 +15,7 @@ yarn-error.log*
 # Directorios de producción o compilación (por si usas TypeScript o bundlers)
 dist/
 build/
+/uploads/
 
 # Archivos del sistema operativo
 .DS_Store

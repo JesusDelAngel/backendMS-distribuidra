@@ -3,6 +3,7 @@ import {nuevoCliente, verClientes, verCliente,actualizarCliente, eliminarCliente
 import {nuevoProducto, subirArchivo, verProductos,verProducto, actualizarProducto,eliminarProducto} from '../controllers/productosController.js'
 import { nuevoPedido, verPedidos, verPedido, actualizarPedido, eliminarPedido } from '../controllers/pedidosControler.js'
 import{ nuevaMarca, subirArchivoMarca, verMarcas, verMarca,actualizarMarca,eliminarMarca}from "../controllers/marcaController.js"
+import{ nuevoColorCategory, verColorCategory} from '../controllers/colorCategoryController.js'
 // CRUD CLIENTES
 const router = express.Router();
 // Agregar un cliente 
@@ -27,9 +28,16 @@ router.get('/marcas',verMarcas);
 router.get('/marca/:idMarca',verMarca);
 router.put('/marca/:idMarca',
     subirArchivoMarca,
-    actualizarMarca)
+    actualizarMarca);
 
-router.delete('/marca/:idMarca', eliminarMarca)
+router.delete('/marca/:idMarca', eliminarMarca);
+
+
+//###############################################
+//CRUD COLOR CATEGORIES
+
+router.post('/colorCategory',nuevoColorCategory);
+router.get('/colorCategory',verColorCategory);
 
 //###############################################
 // CRUD PRODUCTOS
