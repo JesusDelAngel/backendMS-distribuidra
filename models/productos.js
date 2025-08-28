@@ -30,8 +30,17 @@ const productosSchema = new Schema({
         type: String,
         trim:true
     },
-    numerology:{
-        type: Number
+    // Cambiado de Number a String + validación personalizada
+    numerology: {
+        type: String,
+        required: true,
+        validate: {
+            validator: function(v) {
+                // Acepta: número (con o sin decimales) + opcional una letra al final
+                return /^[0-9]+(\.[0-9]+)?[A-Za-z]?$/.test(v);
+            },
+            message: props => `${props.value} no es un valor válido para numerology`
+        }
     },
 
     marca:{ type: mongoose.Schema.Types.ObjectId, ref: 'Marcas', required: true},
